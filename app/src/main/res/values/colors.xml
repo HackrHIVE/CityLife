@@ -19,4 +19,7 @@
     <color name="WhiteColorPrimaryDark">#c7c7c7</color>
     <color name="WhiteColorAccent">#424242</color>
     <color name="WhiteColorAccentAlt">#1b1b1b</color>
+    <color name="LoginColorAccent">#e1bee7</color>
+    <color name="LoginColorPrimary">#ffebee</color>
+    <color name="LoginColorPrimaryDark">#ccb9bc</color>
 </resources>
