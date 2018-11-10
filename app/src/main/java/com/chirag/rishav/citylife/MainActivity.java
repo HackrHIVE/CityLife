@@ -1,6 +1,9 @@
 package com.chirag.rishav.citylife;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView( R.layout.activity_main );
         mAuth = FirebaseAuth.getInstance();
         mainToolbar = findViewById( R.id.MainActivityToolbar );
+        BottomNavigationView botnav = findViewById(R.id.botom_nav);
+        botnav.setOnNavigationItemSelectedListener(navListner);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new homeFragment()).commit();
+
         setSupportActionBar( mainToolbar );
         getSupportActionBar().setTitle( "Home" );
         //changing statusbar color
@@ -34,6 +41,22 @@ public class MainActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.LoginColorPrimaryDark));
         }
     }
+    private BottomNavigationView.OnNavigationItemSelectedListener navListner=new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            Fragment selectedfragment=null;
+
+            switch(menuItem.getItemId())
+            {
+                case R.id.home:
+                    selectedfragment=new homeFragment();
+                    break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedfragment).commit();
+            return true;
+        }
+    };
+
 
     @Override
     protected void onStart() {
@@ -76,5 +99,10 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return false;
         }
+    }
+
+    public void push(MenuItem item) {
+        Intent i=new Intent(getApplicationContext(), UserProfile.class);
+        startActivity(i);
     }
 }
