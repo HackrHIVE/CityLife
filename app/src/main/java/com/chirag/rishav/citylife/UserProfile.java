@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class UserProfile extends AppCompatActivity {
 
-    TextView emailuserProfile;
+    TextView emailuserProfile,nameProfile;
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class UserProfile extends AppCompatActivity {
         setContentView( R.layout.activity_user_profile );
         mAuth = FirebaseAuth.getInstance();
         emailuserProfile = findViewById( R.id.userProfileEmail );
+        nameProfile = findViewById( R.id.name );
         //changing statusbar color
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -49,6 +50,8 @@ public class UserProfile extends AppCompatActivity {
         if(firebaseUser!=null){
             String email = firebaseUser.getEmail();
             emailuserProfile.setText( email );
+            String name = firebaseUser.getDisplayName();
+            nameProfile.setText( name );
         }
     }
 
@@ -59,11 +62,19 @@ public class UserProfile extends AppCompatActivity {
 
 
     public void EditEmail(View view) {
+        Intent JustEditIt = new Intent( this,EditSomething.class );
+        JustEditIt.putExtra( "hint_name" , "Email");
+        startActivity(JustEditIt);
+        finish();
         Toast.makeText( this, "Email Clicked", Toast.LENGTH_SHORT ).show();
         //new Activity will be launched to edit Email
     }
 
     public void EditName(View view) {
+        Intent JustEditIt = new Intent( this,EditSomething.class );
+        JustEditIt.putExtra( "hint_name" , "Name");
+        startActivity(JustEditIt);
+        finish();
         Toast.makeText( this, "Name Clicked", Toast.LENGTH_SHORT ).show();
         //new Activity will be launched to edit Name
     }

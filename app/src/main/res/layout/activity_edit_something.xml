@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#443642"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    android:weightSum="4"
+    tools:context=".EditSomething">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="60dp"
+        android:id="@+id/hint_HEAD"
+        android:layout_marginRight="40dp">
+
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hint_NAME"
+            android:hint=""
+            android:inputType="textEmailAddress" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="40dp"
+        android:onClick="ChangeIt"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:layout_weight="0.1"/>
+
+</LinearLayout>
