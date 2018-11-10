@@ -1,9 +1,11 @@
 package com.chirag.rishav.citylife;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -35,7 +37,7 @@ public class UserProfile extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate( R.menu.main_menu , menu);
+        getMenuInflater().inflate( R.menu.botnav , menu);
 
         return super.onCreateOptionsMenu( menu );
     }
@@ -79,4 +81,6 @@ public class UserProfile extends AppCompatActivity {
     public void EditDP(View view) {
         Toast.makeText( this, "DP Clicked", Toast.LENGTH_SHORT ).show();
     }
+
+
 }

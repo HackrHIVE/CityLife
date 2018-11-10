@@ -7,7 +7,5 @@
     <item
         android:id="@+id/logoutAcc"
         android:title="Logout" />
-    <item
-        android:id="@+id/user"
-        android:title="Account"/>
+
 </menu>
