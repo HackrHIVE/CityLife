@@ -23,10 +23,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".Login"
-           android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".Signup"
-            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".Login"/>
+        <activity android:name=".Signup"/>
         <activity android:name=".UserProfile" />
     </application>
 

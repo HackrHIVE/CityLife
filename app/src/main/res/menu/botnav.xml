@@ -19,6 +19,4 @@
         android:title="Account"
         android:onClick="push"/>
 
-
-
 </menu>

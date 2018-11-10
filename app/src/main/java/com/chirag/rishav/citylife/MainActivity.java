@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -51,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.home:
                     selectedfragment=new homeFragment();
                     break;
+                    default:
+                        Toast.makeText( MainActivity.this, "Yay! You clicked it", Toast.LENGTH_SHORT ).show();
+                        //Daalna pada ,
+                        break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedfragment).commit();
             return true;
