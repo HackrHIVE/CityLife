@@ -22,4 +22,5 @@
     <color name="LoginColorAccent">#e1bee7</color>
     <color name="LoginColorPrimary">#ffebee</color>
     <color name="LoginColorPrimaryDark">#ccb9bc</color>
+    <color name="RishavSkyBlue">#09c6df</color>
 </resources>
