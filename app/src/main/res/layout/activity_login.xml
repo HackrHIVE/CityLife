@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".Login">
 
     <ProgressBar
@@ -19,11 +20,11 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        app:srcCompat="@drawable/city_life_logo1"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:padding="64dp"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/logologin"
         />
 
     
@@ -31,8 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        >
+        android:paddingRight="16dp">
         <android.support.design.widget.TextInputEditText
             android:id="@+id/emailUser"
             android:layout_width="match_parent"
@@ -60,29 +60,30 @@
             android:textColorHint="@color/YellowColorPrimary" />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
         android:text="Login"
         android:onClick="LoginUser"
         android:gravity="center"
-        android:textColor="@color/RedColorPrimary"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
+        android:textAllCaps="false"
         />
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
         android:text="I am New!"
         android:onClick="SignupUser"
-        android:textColor="@color/RedColorPrimary"
+        android:textAllCaps="false"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
         android:layout_marginTop="48dp"
         android:gravity="center"
         />
-    
-        
-
 
 </LinearLayout>
