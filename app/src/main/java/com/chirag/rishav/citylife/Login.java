@@ -24,7 +24,7 @@ import org.w3c.dom.Text;
 
 public class Login extends AppCompatActivity {
 
-    //private TextView CityLifeTitle;
+   // private TextView CityLifeTitle;
     private EditText email,userPass;
     private ProgressBar loginProgress;
     private FirebaseAuth mAuth;
