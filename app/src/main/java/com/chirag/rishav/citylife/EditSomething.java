@@ -42,7 +42,6 @@ public class EditSomething extends AppCompatActivity {
         ChangeProgressbar = findViewById( R.id.EditSomethingProgressbar );
         hint_edit = getIntent().getStringExtra( "hint_name" );
         hintEdit.setHint( hint_edit );
-        Toast.makeText( this, "hint_edit : "+hint_edit, Toast.LENGTH_SHORT ).show();
         if(hint_edit.equals( "Password" )){
             hintNewPassword.setVisibility( View.VISIBLE );
             hintEdit.setInputType( InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD );
@@ -69,55 +68,71 @@ public class EditSomething extends AppCompatActivity {
     public void ChangeIt(View view) {
         ChangeProgressbar.setVisibility( View.VISIBLE );
         updatedDetail = hintEdit.getText().toString();
+
         if(hint_edit.equals( "Name" )){
-            FirebaseUser user = mAuth.getCurrentUser();
-            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                    .setDisplayName(updatedDetail).build();
-            user.updateProfile( profileUpdates ).addOnCompleteListener( new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if(task.isSuccessful()){
-                        ChangeProgressbar.setVisibility( View.GONE );
-                        Toast.makeText( EditSomething.this, "Name updated!", Toast.LENGTH_SHORT ).show();
-                        gotoMain();
+
+            if(!TextUtils.isEmpty( updatedDetail )){
+                FirebaseUser user = mAuth.getCurrentUser();
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                        .setDisplayName(updatedDetail).build();
+                user.updateProfile( profileUpdates ).addOnCompleteListener( new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            ChangeProgressbar.setVisibility( View.GONE );
+                            Toast.makeText( EditSomething.this, "Name updated!", Toast.LENGTH_SHORT ).show();
+                            gotoMain();
+                        }
+                        else{
+                            ChangeProgressbar.setVisibility( View.GONE );
+                            Toast.makeText( EditSomething.this, task.getException().getMessage(), Toast.LENGTH_SHORT ).show();
+                        }
                     }
-                    else{
-                        ChangeProgressbar.setVisibility( View.GONE );
-                        Toast.makeText( EditSomething.this, task.getException().getMessage(), Toast.LENGTH_SHORT ).show();
-                    }
-                }
-            } );
+                } );
+            }
+            else{
+                hintEdit.setError( "Empty" );
+                ChangeProgressbar.setVisibility( View.GONE );
+                Toast.makeText( this, "Empty", Toast.LENGTH_SHORT ).show();
+            }
         }
         else
             if(hint_edit.equals( "Email" )){
 
-                FirebaseUser user = mAuth.getCurrentUser();
-                String currentPassword = hintConfirm.getText().toString();
-                AuthCredential authCredential = EmailAuthProvider
-                        .getCredential( user.getEmail(), currentPassword );
-                user.reauthenticate( authCredential )
-                        .addOnCompleteListener( new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-                                user1.updateEmail(updatedDetail)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    ChangeProgressbar.setVisibility( View.GONE );
-                                                    Toast.makeText( EditSomething.this, "Email updated!", Toast.LENGTH_SHORT ).show();
-                                                    gotoMain();
+                if(!TextUtils.isEmpty( updatedDetail)){
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    String currentPassword = hintConfirm.getText().toString();
+                    AuthCredential authCredential = EmailAuthProvider
+                            .getCredential( user.getEmail(), currentPassword );
+                    user.reauthenticate( authCredential )
+                            .addOnCompleteListener( new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+                                    user1.updateEmail(updatedDetail)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        ChangeProgressbar.setVisibility( View.GONE );
+                                                        Toast.makeText( EditSomething.this, "Email updated!", Toast.LENGTH_SHORT ).show();
+                                                        gotoMain();
+                                                    }
+                                                    else {
+                                                        ChangeProgressbar.setVisibility( View.GONE );
+                                                        Toast.makeText( EditSomething.this, task.getException().getMessage(), Toast.LENGTH_SHORT ).show();
+                                                    }
                                                 }
-                                                else {
-                                                    ChangeProgressbar.setVisibility( View.GONE );
-                                                    Toast.makeText( EditSomething.this, task.getException().getMessage(), Toast.LENGTH_SHORT ).show();
-                                                }
-                                            }
-                                        });
-                            }
-                        } );
-                ChangeProgressbar.setVisibility( View.GONE );
+                                            });
+                                }
+                            } );
+                    ChangeProgressbar.setVisibility( View.GONE );
+                }
+                else{
+                    hintEdit.setError( "Empty" );
+                    ChangeProgressbar.setVisibility( View.GONE );
+                    Toast.makeText( this, "Empty", Toast.LENGTH_SHORT ).show();
+                }
             }
             else
                 if(hint_edit.equals( "Password" )){
