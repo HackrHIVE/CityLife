@@ -8,12 +8,12 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +22,25 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.Map;
+
+import javax.annotation.Nullable;
 
 public class UserProfile extends AppCompatActivity {
 
-    TextView emailuserProfile,nameProfile;
-    FirebaseAuth mAuth;
+    TextView emailuserProfile,nameProfile,phoneProfile,date_birthProfile;
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
     TextInputLayout currentPasswordTextInput;
     Button changePassword,continueChangePassword,cancelOperation;
     TextInputEditText currentPasswordEditText;
@@ -37,11 +51,14 @@ public class UserProfile extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         emailuserProfile = findViewById( R.id.userProfileEmail );
         nameProfile = findViewById( R.id.name );
+        phoneProfile = findViewById( R.id.phone );
+        date_birthProfile = findViewById( R.id.dob );
         changePassword= findViewById( R.id.change_password_btn );
         continueChangePassword = findViewById( R.id.change_password_btn_continue );
         currentPasswordTextInput = findViewById( R.id.currentPasswordTextInput );
         currentPasswordEditText = findViewById( R.id.currentPassword );
         cancelOperation = findViewById( R.id.cancel_action );
+        db = FirebaseFirestore.getInstance();
         //changing statusbar color
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -62,12 +79,31 @@ public class UserProfile extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        final FirebaseUser firebaseUser = mAuth.getCurrentUser();
         if(firebaseUser!=null){
-            String email = firebaseUser.getEmail();
-            emailuserProfile.setText( email );
-            String name = firebaseUser.getDisplayName();
-            nameProfile.setText( name );
+
+            FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                    .setTimestampsInSnapshotsEnabled(true)
+                    .build();
+            db.setFirestoreSettings(settings);
+
+            db.collection( "users" ).document(firebaseUser.getEmail()).addSnapshotListener( new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+
+                    if( documentSnapshot.getString( "email" ).equals( firebaseUser.getEmail() ) ){
+                        String username = documentSnapshot.getString( "name" );
+                        String phone = documentSnapshot.getString( "phone" );
+                        String email = documentSnapshot.getString( "email" );
+                        String date_birth = documentSnapshot.getString( "date_birth" );
+                        emailuserProfile.setText( email );
+                        nameProfile.setText( username );
+                        phoneProfile.setText( phone );
+                        date_birthProfile.setText( date_birth );
+                    }
+                }
+            } );
+
         }
     }
 

@@ -26,7 +26,6 @@ import java.util.TimeZone;
 
 public class Signup extends AppCompatActivity{
 
-    private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth mAuth;
     private ProgressBar SignUpProgress;
     private TextInputEditText userEmailID,userPassword,userConfirmPassword;
@@ -40,7 +39,6 @@ public class Signup extends AppCompatActivity{
         //userDOB = findViewById( R.id.userDOB );
         SignUpProgress = findViewById( R.id.SignUpProgressBar );
         mAuth = FirebaseAuth.getInstance();
-
     }
 
 
