@@ -43,13 +43,6 @@ public class Signup extends AppCompatActivity{
     }
 
 
-    public void gotoMain(){
-        Intent gotoMain = new Intent( Signup.this,MainActivity.class );
-        startActivity( gotoMain );
-        finish();
-    }
-
-
     public void Continue(View view) {
         SignUpProgress.setVisibility( View.VISIBLE );
         final String emailID = userEmailID.getText().toString();
@@ -81,18 +74,12 @@ public class Signup extends AppCompatActivity{
 
             }
             else{
-                userConfirmPassword.setError( "Passwords not matching!" );
+                Toast.makeText( this, "Passwords not matching!", Toast.LENGTH_SHORT ).show();
                 SignUpProgress.setVisibility( View.GONE );
             }
         }
         else{
             Toast.makeText( this, "Fill all the details!", Toast.LENGTH_SHORT ).show();
-            if(TextUtils.isEmpty( emailID ))
-                userEmailID.setError( "Can't leave it empty!" );
-            if(TextUtils.isEmpty( Password ))
-                userPassword.setError( "Can't leave it empty!" );
-            if(TextUtils.isEmpty( ConfirmPassword ))
-                userConfirmPassword.setError( "Can't leave it empty!" );
             SignUpProgress.setVisibility( View.GONE );
         }
     }

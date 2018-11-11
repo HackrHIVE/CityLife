@@ -13,8 +13,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.ProviderQueryResult;
+import com.google.firebase.auth.SignInMethodQueryResult;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -66,10 +70,54 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser user = mAuth.getCurrentUser();
         if(user==null){
             sendToLoginPage();
         }
+        else
+            if(user.getDisplayName().equals("")){
+                gotoSignUpContinued();
+        }
+        else
+            if(!user.isEmailVerified()){
+                gotoEmailVerification();
+            }
+        else{
+            /*
+            mAuth.fetchProvidersForEmail( user.getEmail())
+                    .addOnCompleteListener( new OnCompleteListener<ProviderQueryResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<ProviderQueryResult> task) {
+                            if(task.isSuccessful()){
+                                boolean check = task.getResult().getProviders().isEmpty();
+                                if(!check){
+                                    Toast.makeText( MainActivity.this, "User "+ user.getEmail()+" not found!", Toast.LENGTH_SHORT ).show();
+                                    mAuth.signOut();
+                                }
+                                else{
+                                    Toast.makeText( MainActivity.this, "User "+user.getEmail()+" found!", Toast.LENGTH_SHORT ).show();
+                                }
+                            }
+                            else{
+                                Toast.makeText( MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT ).show();
+                            }
+                        }
+                    });
+            */
+        }
+
+    }
+
+    private void gotoEmailVerification() {
+        Intent intent = new Intent( this,EmailVerification.class);
+        startActivity( intent);
+        finish();
+    }
+
+    private void gotoSignUpContinued() {
+        Intent intent = new Intent( this,SignupContinued.class );
+        startActivity( intent );
+        finish();
     }
 
     private void sendToLoginPage() {

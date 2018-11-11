@@ -2,13 +2,18 @@ package com.chirag.rishav.citylife;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -62,19 +67,39 @@ public class SignupContinued extends AppCompatActivity {
     }
 
     public void ContinueFurther(View view) {
+        continueProgressBar.setVisibility( View.VISIBLE );
         String userNameString = userName.getText().toString();
         String userPhoneString = userPhone.getText().toString();
         String userDOBString = userDOB.getText().toString();
 
-        FirebaseUser user = mAuth.getCurrentUser();
+        if(!TextUtils.isEmpty( userNameString ) && !TextUtils.isEmpty( userPhoneString ) && !TextUtils.isEmpty( userDOBString )){
+            FirebaseUser user = mAuth.getCurrentUser();
 
 
-        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                .setDisplayName(userNameString).build();
-        user.updateProfile( profileUpdates );
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(userNameString).build();
+            user.updateProfile( profileUpdates ).addOnCompleteListener( new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        continueProgressBar.setVisibility( View.GONE );
+                        Intent gotoMain = new Intent( SignupContinued.this,MainActivity.class );
+                        startActivity(gotoMain);
+                        finish();
+                    }
+                    else{
+                        continueProgressBar.setVisibility( View.GONE );
+                        Toast.makeText( SignupContinued.this, task.getException().getMessage(), Toast.LENGTH_SHORT ).show();
+                    }
+                }
+            } );
 
-        Intent gotoMain = new Intent( this,MainActivity.class );
-        startActivity(gotoMain);
-        finish();
+
+        }
+        else{
+
+            continueProgressBar.setVisibility( View.GONE );
+            Toast.makeText( this, "Fill Details", Toast.LENGTH_SHORT ).show();
+        }
     }
 }

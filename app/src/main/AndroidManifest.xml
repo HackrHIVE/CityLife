@@ -31,7 +31,8 @@
         <activity android:name=".Signup" />
         <activity android:name=".UserProfile" />
         <activity android:name=".SignupContinued" />
-        <activity android:name=".EditSomething"></activity>
+        <activity android:name=".EditSomething" />
+        <activity android:name=".EmailVerification"></activity>
     </application>
 
 </manifest>

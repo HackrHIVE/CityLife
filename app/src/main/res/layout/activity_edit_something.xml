@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +9,7 @@
     android:gravity="center_vertical"
     android:weightSum="4"
     tools:context=".EditSomething">
+
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -26,9 +26,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/hint_NAME"
-            android:hint=""
             android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:visibility="gone"
+        android:id="@+id/hint_TEMP"
+        android:layout_marginRight="40dp">
+
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hint_TEMP_child"
+            android:inputType="textEmailAddress" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ProgressBar
+        android:layout_marginTop="30dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/EditSomethingProgressbar"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:visibility="gone"
+        android:layout_weight="0.1"
+        android:indeterminate="true"
+        android:layout_height="wrap_content" />
 
     <Button
         android:layout_width="match_parent"
@@ -36,9 +65,10 @@
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="60dp"
         android:layout_marginRight="40dp"
+        android:id="@+id/SubmitBTN"
         android:onClick="ChangeIt"
         android:text="Submit"
         android:textAllCaps="false"
-        android:layout_weight="0.1"/>
+        android:layout_weight="0.08"/>
 
 </LinearLayout>
