@@ -102,6 +102,7 @@
             android:text="Continue"
             android:textAllCaps="false"
             android:textColor="@color/WhiteColorPrimary" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
