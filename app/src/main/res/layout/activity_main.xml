@@ -26,6 +26,16 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/botom_nav">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Chodu Chirag"/>
+        </LinearLayout>
+
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
@@ -37,4 +47,11 @@
         android:background="?android:attr/windowBackground">
 
     </android.support.design.widget.BottomNavigationView>
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </android.support.v4.view.ViewPager>
 </RelativeLayout>
