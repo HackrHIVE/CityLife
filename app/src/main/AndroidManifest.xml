@@ -13,7 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN"/>
+                    <category android:name="android.intent.category.LAUNCHER"/>
+
+            </intent-filter>
+
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
@@ -26,17 +36,7 @@
         <activity android:name=".UserProfile" />
         <activity android:name=".SignupContinued" />
         <activity android:name=".EditSomething" />
-        <activity android:name=".EmailVerification" />
-        <activity android:name=".HowToReach">
-
-        </activity>
-        <activity android:name=".Hotels">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".EmailVerification"></activity>
     </application>
 
 </manifest>
