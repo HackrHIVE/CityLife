@@ -18,7 +18,7 @@
             <intent-filter>
 
                 <action android:name="android.intent.action.MAIN"/>
-                    <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
 
             </intent-filter>
 
@@ -37,6 +37,8 @@
         <activity android:name=".SignupContinued" />
         <activity android:name=".EditSomething" />
         <activity android:name=".EmailVerification"></activity>
+        <activity android:name=".Hotels">
+        </activity>
     </application>
 
 </manifest>

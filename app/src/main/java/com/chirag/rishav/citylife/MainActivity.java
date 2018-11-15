@@ -6,11 +6,13 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+
 
 
     private FirebaseAuth mAuth;
@@ -50,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.LoginColorPrimaryDark));
         }
+
+
+
+
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListner=new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -163,4 +170,6 @@ public class MainActivity extends AppCompatActivity {
         Intent i=new Intent(getApplicationContext(), UserProfile.class);
         startActivity(i);
     }
+
+
 }
