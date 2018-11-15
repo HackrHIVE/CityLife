@@ -18,7 +18,7 @@
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:src="@drawable/chandigarh"
             android:layout_weight="2"/>
 
@@ -37,7 +37,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/reach"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_width="match_parent"
@@ -69,7 +71,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/hotels"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_below="@id/reach"
@@ -103,7 +107,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/retaurants"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_below="@id/hotels"
@@ -137,7 +143,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/places"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_below="@id/retaurants"
@@ -171,7 +179,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/things"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_below="@id/places"
@@ -204,7 +214,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/shopping"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_below="@id/things"
@@ -238,7 +250,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/nightlife"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_below="@id/shopping"
@@ -272,7 +286,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/weekend"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_below="@id/nightlife"
@@ -306,7 +322,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/history"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_below="@id/weekend"
