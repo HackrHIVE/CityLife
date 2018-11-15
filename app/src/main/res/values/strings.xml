@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">CityLife</string>
+    <string name="how_to_reach"><b>How to Reach Chandigarh</b>\n
+\nOne of the well-planned cities of <b>India</b>, Chandigarh is the common capital of Punjab and Haryana. Also known as “The City Beautiful”, Chandigarh features beautiful lakes, well-maintained gardens and dense greenery. Some of the city’s main tourist attractions include Rock Garden, Sukhna Lake, Rose Garden, Garden of Fragrance, Butterfly Park and International Dolls Museum. Being an important travel destination of India, it is well-connected to other major Indian cities by air, road and rail.
+      </string>
+
+    \n
+    <string name="by_air"><b>How to Reach Chandigarh by Air</b>\n\nLocated around 12 km away from the city centre, Chandigarh Airport links the city with rest of the country by an extensive network of domestic flights. Regular flights from Bangalore, Mumbai, Chennai, Delhi, Srinagar and Ahmedabad are available for Chandigarh.Chandigarh has excellent road connectivity with other neighbouring cities. Many direct buses are available from cities like Mussoorie, Shimla, Mcleodganj, Dharamsala, Delhi, Kullu etc. The National Highway 1 connects Chandigarh with Delhi, which takes around 4 to 5 hours.
+
+    \n \n<b><i>Nearest Airport : Chandigarh Airport, Chandigarh</i></b>\n </string>
+
+    <string name="by_rail">\n<b>How to Reach Chandigarh by Rail</b>\n\nLocated about 8 km away from the city centre, Chandigarh Railway Station has several frequent trains plying from New Delhi. From the railway station, you can take buses, autos or taxis to reach any place of the city.
+
+</string>
+
+    \n
+    <string name="by_road"><b>How to reach Chandigarh by Road</b>\n
+\nThese transport modes provide enjoyable journey to the nearby places to Chandigarh like Shimla (119 km), Dehradun (167 km), Mussoorie (192 km), Haridwar (205 km), Rishikesh (210 km), Delhi (248 km), Kullu (263 Km), Dharamshala (275) and Mcleodganj (275 km) from the city. Bus service is good from Chandigarh and online booking of bus ticketscan be done easily
+</string>
 
 </resources>
