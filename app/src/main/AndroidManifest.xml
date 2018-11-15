@@ -15,14 +15,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
 
-            <intent-filter>
-
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-
-            </intent-filter>
-
-
         </activity>
 
         <meta-data
@@ -36,8 +28,15 @@
         <activity android:name=".UserProfile" />
         <activity android:name=".SignupContinued" />
         <activity android:name=".EditSomething" />
-        <activity android:name=".EmailVerification"></activity>
-        <activity android:name=".Hotels">
+        <activity android:name=".EmailVerification" />
+        <activity android:name=".Hotels"></activity>
+        <activity android:name=".PlacesToVisit">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
