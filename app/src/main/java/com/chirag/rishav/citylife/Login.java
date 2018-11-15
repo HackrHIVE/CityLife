@@ -30,6 +30,7 @@ public class Login extends AppCompatActivity {
     private ProgressBar loginProgress;
     private FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -46,6 +47,7 @@ public class Login extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.YellowColorAccent));
         }
+
     }
 
     public void gotoMain(){
@@ -79,6 +81,7 @@ public class Login extends AppCompatActivity {
             Toast.makeText( this, "Fill Details", Toast.LENGTH_SHORT ).show();
         }
     }
+
 
     @Override
     protected void onStart() {
