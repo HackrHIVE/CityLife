@@ -84,6 +84,61 @@
 
         </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/relative2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/ramada"
+                        android:layout_width="200dp"
+                        android:layout_height="180dp"
+                        app:srcCompat="@drawable/ramada_hotel"
+                        android:scaleType="centerCrop"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ramada Hotel"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/Taj"
+                        android:scaleType="centerCrop"
+                        android:layout_width="200dp"
+                        android:layout_height="180dp"
+                        app:srcCompat="@drawable/taj_hotel" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Taj Hotel"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"/>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
