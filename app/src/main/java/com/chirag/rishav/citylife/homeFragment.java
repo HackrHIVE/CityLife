@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 public class homeFragment extends Fragment  {
     LinearLayout ho;
+    LinearLayout places;
    // CardView hotel;
     View vv;
     @Nullable
@@ -20,11 +21,19 @@ public class homeFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
          vv=inflater.inflate(R.layout.home_nav,container,false);
          ho = vv.findViewById(R.id.hoi);
+         places = vv.findViewById(R.id.placestoVisit);
        // hotel= vv.findViewById(R.id.hotels);
         ho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),Hotels.class);
+                startActivity(intent);
+            }
+        });
+        places.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),PlacesToVisit.class);
                 startActivity(intent);
             }
         });
